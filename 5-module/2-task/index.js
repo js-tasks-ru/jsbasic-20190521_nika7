@@ -50,7 +50,7 @@ function SortableTable(items) {
         if (!desc) {
             allBodyRows1.sort(function (a, b) {
                 if (!isNaN(Number(a.children[column].innerHTML))) {
-                    if (Number(a.children[column].innerHTML)< Number(b.children[column].innerHTML)) {
+                    if (Number(a.children[column].innerHTML) < Number(b.children[column].innerHTML)) {
                         return -1;
                     }
                 } else {
@@ -60,18 +60,20 @@ function SortableTable(items) {
                 }
             })
             allBodyRows1.forEach(function (el) {
+                console.log(allBodyRows1)
                 newTbody.appendChild(el)
 
             })
-        }  else {
+
+        } else {
             allBodyRows1.sort(function (a, b) {
                 if (!isNaN(Number(a.children[column].innerHTML))) {
                     if (Number(a.children[column].innerHTML) > Number(b.children[column].innerHTML)) {
-                        return 1;
+                        return -1;
                     }
                 } else {
                     if (a.children[column].innerHTML > b.children[column].innerHTML) {
-                        return 1;
+                        return -1;
                     }
                 }
             })
@@ -79,7 +81,10 @@ function SortableTable(items) {
                 newTbody.appendChild(el)
 
             })
+            console.log(allBodyRows1)
+
         }
+
         this.el.appendChild(newTbody)
 
     };
