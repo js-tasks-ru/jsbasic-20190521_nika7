@@ -60,7 +60,6 @@ function SortableTable(items) {
                 }
             })
             allBodyRows1.forEach(function (el) {
-                console.log(allBodyRows1)
                 newTbody.appendChild(el)
 
             })
@@ -81,7 +80,6 @@ function SortableTable(items) {
                 newTbody.appendChild(el)
 
             })
-            console.log(allBodyRows1)
 
         }
 
