@@ -26,6 +26,7 @@
             let bodyRow = document.createElement('tbody')
             this.data.forEach(function (element) {
                 let innerBody = document.createElement('tr')
+                innerBody.setAttribute('id', element.id)
                 innerBody.innerHTML += '<td>' + element.name + '</td>\n'
                 innerBody.innerHTML += '<td>' + element.age + '</td>\n'
                 innerBody.innerHTML += '<td>' + element.salary + '</td>\n'
@@ -44,7 +45,14 @@
          * @param {number} id - идентификатор удаляемого пользователя
          */
         onRemoved(id) {
-            console.log(`Из таблицы удален пользователь ${id}`);
+            let elToRemove = this.el.getElementsByTagName('tr')
+            for (let el in Array.from(elToRemove)) {
+                if (elToRemove[el].id.toString() === id){
+                    elToRemove[el].remove()
+                    console.log(`Из таблицы удален пользователь ${id}`)
+                }
+            }
+
         }
     }
 
