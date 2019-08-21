@@ -74,18 +74,6 @@
 
     let table = new ClearedTable(rows);
     let newTable = document.querySelector('.result').appendChild(table.el);
-    let tags = newTable.getElementsByTagName('a')
-    for (let element in Array.from(tags)){
-        // tags[element].onclick = table.onRemoved(element)
-        tags[element].onclick = function (event){
-            let target = event.target.parentElement.parentElement
-            table.onRemoved(target.id)
-        }
-    }
-    // table.el.onRemoved(rows.id)
-    // table.el. onRemoved = function (id) {
-    //     console.log(`Из таблицы удален пользователь ${id}`);
-    // }
 </script>
 </body>
 </html>

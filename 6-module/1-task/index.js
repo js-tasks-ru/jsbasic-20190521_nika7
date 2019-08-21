@@ -31,7 +31,7 @@
                 innerBody.innerHTML += '<td>' + element.age + '</td>\n'
                 innerBody.innerHTML += '<td>' + element.salary + '</td>\n'
                 innerBody.innerHTML += '<td>' + element.city + '</td>\n'
-                innerBody.innerHTML += '<td><a href="#delete">X</a></td>\n'
+                innerBody.innerHTML += '<td><a href="#delete" onclick="table.onRemoved(' + element.id + ')">X</a></td>\n'
                 bodyRow.appendChild(innerBody)
             })
 
@@ -45,16 +45,14 @@
          * @param {number} id - идентификатор удаляемого пользователя
          */
         onRemoved(id) {
-            let elToRemove = this.el.getElementsByTagName('tr')
-            for (let el in Array.from(elToRemove)) {
-                if (elToRemove[el].id.toString() === id){
-                    elToRemove[el].remove()
-                    console.log(`Из таблицы удален пользователь ${id}`)
-                }
-            }
+            let elToRemove = document.getElementById(id)
+            elToRemove.remove()
+            console.log(`Из таблицы удален пользователь ${id}`)
+
 
         }
     }
 
     window.ClearedTable = ClearedTable;
 })();
+
